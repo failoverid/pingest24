@@ -1,27 +1,38 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
-
-    <form method="POST" action="{{ route('password.confirm') }}">
-        @csrf
-
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+<!-- resources/views/auth/confirm-password.blade.php -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Password</title>
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/loginform.css') }}">
+</head>
+<body>
+    <br><br><br>
+    <section class="confirm-password">
+        <div class="content-area">
+            <div class="form-image-container">
+                <div class="form-image"></div>
+                <div class="form-container">
+                    <div class="form">
+                        <form action="{{ route('password.confirm') }}" method="POST">
+                            @csrf
+                            <h1>Konfirmasi Password</h1>
+                            <p>Silakan konfirmasi password Anda sebelum melanjutkan.</p>
+                            <label for="password">Password</label><br>
+                            <input placeholder="Masukkan password" type="password" id="password" name="password" required autocomplete="current-password"><br><br>
+                            <div>
+                                <input type="submit" value="Konfirmasi Password">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="lupa-password">
+                        <a href="{{ route('password.request') }}">Lupa password</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
-                {{ __('Confirm') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </section>
+</body>
+</html>
