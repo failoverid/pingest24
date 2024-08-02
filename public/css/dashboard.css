@@ -6,6 +6,7 @@
     left: 0;
     padding: 1vw;
     width: clamp(250px, 16vw, 300px);
+    box-sizing: border-box;
 }
 .sidebar-container {
     position: relative;
@@ -78,8 +79,7 @@
 }
 
 main {
-    margin-left: 14vw;
-    margin-right: 14vw;
+    margin-left: clamp(250px, 16vw, 300px);
     padding-top: 4vh;
     padding-left: 24px;
 }
